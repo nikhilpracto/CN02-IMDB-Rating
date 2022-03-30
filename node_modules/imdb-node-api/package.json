@@ -1,0 +1,37 @@
+{
+  "name": "imdb-node-api",
+  "version": "0.1.0",
+  "description": "IMDb API",
+  "main": "index.js",
+  "directories": {
+    "example": "example",
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "node ./node_modules/mocha/bin/mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/berkaybayraktar/imdb-node-api.git"
+  },
+  "keywords": [
+    "imdb",
+    "api",
+    "node"
+  ],
+  "author": "Berkay Bayraktar <bayberkay@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/berkaybayraktar/imdb-node-api/issues"
+  },
+  "homepage": "https://github.com/berkaybayraktar/imdb-node-api#readme",
+  "dependencies": {
+    "cheerio": "^0.20.0",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.5.3"
+  }
+}

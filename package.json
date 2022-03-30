@@ -1,0 +1,25 @@
+{
+  "name": "cn02-imdb-rating",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nikhilpracto/CN02-IMDB-Rating.git"
+  },
+  "author": "Nikhil Nagrale",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nikhilpracto/CN02-IMDB-Rating/issues"
+  },
+  "homepage": "https://github.com/nikhilpracto/CN02-IMDB-Rating#readme",
+  "dependencies": {
+    "axios": "^0.26.1",
+    "imdb-node-api": "^0.1.0",
+    "node-fetch": "^3.2.3",
+    "prompt-sync": "^4.2.0"
+  }
+}
