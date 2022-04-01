@@ -1,32 +1,36 @@
-var http = require('http');
-var imdb = require('imdb-node-api');
+const http = require('http');
 const axios = require('axios');
+const prompt = require('prompt-sync')();
 
+// api Key
+var apikey = "k_t6z8knyo";
+let movieid = "tt0119654";
+
+// create server
 http.createServer(function(req, res){
     res.writeHead(200, {'Content-Type' : 'text/plain'});
     res.end("Hello World!");
 }).listen(8080);
-console.log('Server started on localhost:8080');
 
-var apikey = "k_t6z8knyo";
-const prompt = require('prompt-sync')();
+console.log('Server started on localhost:8080');
 
 const movie = prompt("Enter Movie Name: ");
 
 var url = "https://imdb-api.com/en/API/SearchMovie/" + apikey + "/" + movie;
 
-let movieid = "tt0119654";
+const findMovieDetails = async () => {
+    const resp = await axios.get(url);
+    movieid = resp.data.results[0].id;
 
-axios.get(url).then(response=>{
-    movieid = response.data.results[0].id;
-    console.log(movieid);
-});
+    const urlwitthid = "https://imdb-api.com/en/API/Ratings/" + apikey + "/" + movieid;
 
-var urlwitthid = "https://imdb-api.com/en/API/Ratings/" + apikey + "/" + movieid;
-
-axios.get(urlwitthid).then(response=>{
+    const response = await axios.get(urlwitthid);
     console.log("Movie Name : " + response.data.fullTitle);
     console.log("IMDB rating : " + response.data.imDb);
     console.log("Rotten Tomatoes : " + response.data.rottenTomatoes);
-});
+
+    process.kill(process.pid, 'SIGTERM');
+};
+
+findMovieDetails();
 
